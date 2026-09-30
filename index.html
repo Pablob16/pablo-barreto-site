@@ -8,7 +8,8 @@
 <title>Pablo Barreto</title>
 <meta name="description" content="Portfólio de Pablo Barreto, produtor cultural, parecerista e gestor de projetos no Rio de Janeiro. Fundador da ProduPlay.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600&display=swap"></noscript>
 <script>
 (function(){var h=document.documentElement;h.classList.add('js');
 try{var rm=matchMedia('(prefers-reduced-motion: reduce)').matches;if(!rm&&('animate' in h)){h.classList.add('intro');setTimeout(function(){h.classList.remove('intro')},4000)}}catch(e){}})();
@@ -79,6 +80,7 @@ img{max-width:100%;display:block}
 .page-hero{position:relative;isolation:isolate;overflow:hidden;background:#070D22;color:#fff;text-align:center;padding:clamp(56px,8vw,96px) 16px clamp(170px,26vh,280px);min-height:min(100svh,860px);display:flex;flex-direction:column;justify-content:flex-start}
 .hero-cena{position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse at 50% 85%,#152A6E 0%,#0B1530 45%,#070D22 100%)}
 .hero-cena::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse at 50% 40%,rgba(7,13,34,.42) 0%,rgba(7,13,34,0) 55%)}
+.hero-papeis li{text-shadow:0 0 3px #070D22,0 1px 10px rgba(7,13,34,.85)}
 .hero-cena canvas{position:absolute;inset:0;width:100%;height:100%;display:block;user-select:none}
 .hero-cena::after{content:"";position:absolute;inset:-1px;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(15,27,61,1) 0%,rgba(15,27,61,.55) 6%,rgba(15,27,61,.15) 14%,rgba(15,27,61,0) 22%,rgba(15,27,61,0) 100%)}
 .hero-stage{position:relative;z-index:2;width:100%;max-width:1100px;margin:0 auto}
@@ -101,6 +103,7 @@ html.intro .brand,html.intro .nav,html.intro .rail,html.intro .pill,html.intro .
 .hero-papeis{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:22px 0 0;padding:0;list-style:none}
 .hero-papeis li{border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:5px 14px;font-size:14px;font-weight:500;color:#E6ECFB}
 .hero-actions{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:30px}
+@media (max-width:700px){.hero-texto,.btn--linha{text-shadow:0 0 3px #070D22,0 1px 12px rgba(7,13,34,.9)}}
 
 /* ===== faixa ===== */
 .faixa{background:var(--faixa);color:var(--faixa-texto);text-align:center;padding:34px 16px}
@@ -114,7 +117,7 @@ html.intro .brand,html.intro .nav,html.intro .rail,html.intro .pill,html.intro .
 .section--azul{background:#0F1B3D;color:#fff}
 .section-head{text-align:center;max-width:780px;margin:0 auto 44px}
 .eyebrow{display:block;color:var(--laranja);font-weight:600;font-size:12px;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:8px}
-.section-title{font-family:var(--titulo);font-weight:400;text-transform:uppercase;font-size:clamp(44px,5.6vw,64px);line-height:1;margin:0;color:var(--azul);letter-spacing:-.5px;text-wrap:balance}
+.section-title{font-family:var(--titulo);font-weight:400;text-transform:uppercase;font-size:clamp(44px,5.6vw,64px);line-height:1;margin:0;color:var(--azul);letter-spacing:-.5px;text-wrap:balance;overflow-wrap:anywhere}
 .section-title::after{content:"";display:block;width:64px;height:4px;border-radius:3px;background:var(--laranja);margin:18px auto 0}
 .section-head--esq{text-align:left;margin-left:0}
 .section-head--esq .section-title::after{margin-left:0}
@@ -142,7 +145,7 @@ html.intro .brand,html.intro .nav,html.intro .rail,html.intro .pill,html.intro .
 .card .num{position:absolute;top:18px;right:20px;font-size:13px;font-weight:600;letter-spacing:1.5px;color:var(--texto-suave)}
 /* arco 3D: os cartões ficam numa curva com profundidade e reagem ao mouse */
 .arco3d{perspective:1500px;position:relative}
-.arco3d::before{content:"";position:absolute;inset:-12% -6% -18%;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 50% 65%,rgba(35,80,216,.20),transparent 62%)}
+.arco3d::before{content:"";position:absolute;inset:-12% 0 -18%;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 50% 65%,rgba(35,80,216,.20),transparent 62%)}
 .arco3d.grid{transform-style:preserve-3d}
 .arco3d .card{--rx:0deg;--ry:0deg;--lift:0px;--z:0px;transform:rotateY(calc(var(--rot,0deg) + var(--ry))) rotateX(var(--rx)) translate3d(0,var(--lift),calc(var(--z) + var(--zl,0px)));transition:transform .45s cubic-bezier(.22,1,.36,1),box-shadow .45s,border-color .45s;will-change:transform;overflow:visible}
 .arco3d .card::after{content:"";position:absolute;left:10%;right:10%;top:-38%;height:60%;pointer-events:none;border-radius:50%;background:radial-gradient(ellipse at 50% 100%,rgba(150,190,255,.55),rgba(150,190,255,0) 70%);opacity:0;filter:blur(10px);transition:opacity .45s}
@@ -610,8 +613,8 @@ html.intro .brand,html.intro .nav,html.intro .rail,html.intro .pill,html.intro .
   <div class="footer-bottom">© 2026 Pablo Barreto · ProduPlay · Rio de Janeiro</div>
 </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script src="particulas.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script defer src="particulas.js?v=5"></script>
 <script>
 /* ===== Entrada (Web Animations API), mesma linha do tempo do motion original ===== */
 (function(){
@@ -640,7 +643,9 @@ html.intro .brand,html.intro .nav,html.intro .rail,html.intro .pill,html.intro .
     Promise.all(tw.map(function(a){return a.finished})).then(function(){tw.forEach(function(a){try{a.cancel()}catch(e){}});h.classList.add('intro-done')}).catch(function(){h.classList.add('intro-done')});
   }
   var start=function(){requestAnimationFrame(go)};
-  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(start,start);else start();
+  var fontes=(document.fonts&&document.fonts.ready)||Promise.resolve();
+  var cena=new Promise(function(r){if(window.__cenaPronta)r();else addEventListener('cenapronta',r,{once:true})});
+  Promise.race([Promise.all([fontes,cena]),new Promise(function(r){setTimeout(r,2200)})]).then(start,start);
 })();
 
 (function(){ /* inclinação 3D dos cartões de vidro ao passar o mouse */
