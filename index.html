@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#070D22">
+<link rel="icon" href="img/simbolo.svg">
+<title>Pablo Barreto</title>
+<meta name="description" content="Portfólio de Pablo Barreto, produtor cultural, parecerista e gestor de projetos no Rio de Janeiro. Fundador da ProduPlay.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<script>
+(function(){var h=document.documentElement;h.classList.add('js');
+try{var rm=matchMedia('(prefers-reduced-motion: reduce)').matches;if(!rm&&('animate' in h)){h.classList.add('intro');setTimeout(function(){h.classList.remove('intro')},4000)}}catch(e){}})();
+</script>
+<style>
+/* Estrutura do site do Instituto São Paio (cabeçalho, topo escuro, faixa, títulos centrais com traço, cartões, álbuns, clipping, faixa de chamada e rodapé),
+   com a identidade do Pablo: azul ProduPlay, laranja de refletor, Source Serif 4 nos títulos e IBM Plex Sans no texto. */
+:root{
+  --fundo:#FFFFFF;
+  --fundo-alt:#F2F5FB;
+  --texto:#18203A;
+  --texto-suave:#556079;
+  --azul:#2350D8;
+  --azul-escuro:#0F1B3D;
+  --laranja:#E0601A;
+  --faixa:#E8EEFF;
+  --faixa-texto:#0F1B3D;
+  --card:#FFFFFF;
+  --borda:#E1E6F0;
+  --sombra:0 10px 30px rgba(15,27,61,.08);
+  --vidro:rgba(255,255,255,.58);
+  --vidro-borda:rgba(15,27,61,.13);
+  --vidro-brilho:rgba(255,255,255,.9);
+  --display:'Source Serif 4',Georgia,'Times New Roman',serif;
+  --titulo:'League Gothic','Arial Narrow',Impact,sans-serif;
+  --corpo:'IBM Plex Sans','Segoe UI',Roboto,Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --fundo:#0D1428;--fundo-alt:#111B35;--texto:#E9EDF7;--texto-suave:#A8B2CB;--azul:#7C9BFF;--azul-escuro:#08101F;--laranja:#FF8A4C;--faixa:#142250;--faixa-texto:#E9EDF7;--card:#16213F;--borda:#25325A;--sombra:0 18px 40px rgba(0,0,0,.35);--vidro:rgba(24,36,78,.42);--vidro-borda:rgba(255,255,255,.14);--vidro-brilho:rgba(255,255,255,.22);color-scheme:dark}}
+:root[data-theme="dark"]{
+  --fundo:#0D1428;--fundo-alt:#111B35;--texto:#E9EDF7;--texto-suave:#A8B2CB;--azul:#7C9BFF;--azul-escuro:#08101F;--laranja:#FF8A4C;--faixa:#142250;--faixa-texto:#E9EDF7;--card:#16213F;--borda:#25325A;--sombra:0 18px 40px rgba(0,0,0,.35);--vidro:rgba(24,36,78,.42);--vidro-borda:rgba(255,255,255,.14);--vidro-brilho:rgba(255,255,255,.22);color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--fundo);color:var(--texto);font-family:var(--corpo);font-size:17px;line-height:1.65}
+a{color:var(--azul)}
+img{max-width:100%;display:block}
+:focus-visible{outline:3px solid var(--laranja);outline-offset:3px}
+.container{max-width:1160px;margin:0 auto;padding-inline:clamp(16px,4vw,32px)}
+
+/* ===== cabeçalho ===== */
+.site-header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:#0F1B3D;color:#fff;box-shadow:0 2px 14px rgba(0,0,0,.18)}
+.header-inner{max-width:1160px;margin:0 auto;padding:12px clamp(16px,4vw,32px);display:flex;align-items:center;gap:18px;position:relative}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff;margin-right:auto}
+.brand .logo{height:50px;width:auto;max-width:62vw;object-fit:contain;object-position:left center;border-radius:0;background:none}
+.brand b{font-family:var(--display);font-weight:600;font-size:22px;line-height:1.1}
+.brand small{display:block;font-size:12px;color:#B9C6EA;letter-spacing:.5px}
+.nav{display:flex;align-items:center;gap:24px;font-weight:500;font-size:15px}
+.nav a{color:#DCE4FA;text-decoration:none}
+.nav a:hover{color:#fff}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:999px;font-weight:600;font-size:15px;text-decoration:none;border:2px solid transparent;cursor:pointer;font-family:var(--corpo)}
+.btn--laranja{background:#E0601A;color:#fff}
+.btn--laranja:hover{filter:brightness(1.06)}
+.btn--claro{background:#fff;color:#18203A}
+.btn--linha{border-color:rgba(255,255,255,.55);color:#fff;background:transparent}
+.nav .btn{padding:9px 18px;color:#fff}
+.nav-toggle{display:none;background:none;border:0;color:#fff;cursor:pointer;padding:6px}
+@media (max-width:900px){
+  .nav-toggle{display:block}
+  .nav{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;align-items:stretch;gap:0;background:#0F1B3D;padding:8px 16px 16px}
+  .nav a{padding:12px 4px;border-bottom:1px solid rgba(255,255,255,.08)}
+  .nav .btn{margin-top:10px;justify-content:center}
+  .nav.open{display:flex}
+}
+
+/* ===== topo ===== */
+.page-hero{position:relative;isolation:isolate;overflow:hidden;background:#070D22;color:#fff;text-align:center;padding:clamp(56px,8vw,96px) 16px clamp(170px,26vh,280px);min-height:min(100svh,860px);display:flex;flex-direction:column;justify-content:flex-start}
+.hero-cena{position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse at 50% 85%,#152A6E 0%,#0B1530 45%,#070D22 100%)}
+.hero-cena::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse at 50% 40%,rgba(7,13,34,.42) 0%,rgba(7,13,34,0) 55%)}
+.hero-cena canvas{position:absolute;inset:0;width:100%;height:100%;display:block;user-select:none}
+.hero-cena::after{content:"";position:absolute;inset:-1px;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(15,27,61,1) 0%,rgba(15,27,61,.55) 6%,rgba(15,27,61,.15) 14%,rgba(15,27,61,0) 22%,rgba(15,27,61,0) 100%)}
+.hero-stage{position:relative;z-index:2;width:100%;max-width:1100px;margin:0 auto}
+.rail{position:absolute;right:8.7px;top:11.9px;width:1.9px;height:47.2px;background:#989eac;border-radius:1px;pointer-events:none;transform-origin:50% 0;z-index:3}
+.pill{position:relative;display:inline-flex;align-items:center;height:35.3px;padding:0 11.78px 0 11.92px;background:rgba(51,52,74,.6);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-radius:999px;color:#fff;text-decoration:none;white-space:nowrap;transition:background-color .2s;margin-bottom:22px}
+@media (hover:hover){.pill:hover{background:rgba(66,66,96,.66)}}
+.pill .sq{display:inline-block;width:9.3px;height:11.1px;background:#FF9A5C;position:relative;top:.1px}
+.pill span{margin-left:14px;font-weight:600;font-size:12px;letter-spacing:.6px;text-transform:uppercase;line-height:1;position:relative;top:-.5px;color:#FFD6BF}
+.pill svg{width:11px;height:10.5px;margin-left:13.5px;position:relative;top:.15px}
+.pill::after{content:"";position:absolute;inset:-6px -2px}
+@media (max-width:510.98px){.pill{white-space:normal;height:auto;padding:8px 12px;text-align:left}.pill span{font-size:11px;line-height:1.3}}
+.hero-title .w{display:inline-block;overflow:hidden;vertical-align:top;padding:.08em 0 .2em;margin:-.08em 0 -.2em}
+.hero-title .w>span{display:inline-block}
+.hero-actions .btn{position:relative;overflow:hidden}
+.hero-actions .btn>span{display:inline-flex;align-items:center;gap:10px}
+html.intro .brand,html.intro .nav,html.intro .rail,html.intro .pill,html.intro .hero-title,html.intro .hero-papeis,html.intro .hero-texto,html.intro .hero-actions .btn{opacity:0}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}}
+.hero-title{font-family:var(--display);font-weight:600;font-size:clamp(52px,8vw,96px);line-height:1;margin:0;letter-spacing:-1px}
+.hero-texto{max-width:620px;margin:22px auto 0;font-size:clamp(18px,2vw,20px);color:#D5DEF7}
+.hero-papeis{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:22px 0 0;padding:0;list-style:none}
+.hero-papeis li{border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:5px 14px;font-size:14px;font-weight:500;color:#E6ECFB}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:30px}
+
+/* ===== faixa ===== */
+.faixa{background:var(--faixa);color:var(--faixa-texto);text-align:center;padding:34px 16px}
+.faixa .selo-tag{display:inline-block;background:#E0601A;color:#fff;font-weight:600;font-size:12px;letter-spacing:2px;text-transform:uppercase;padding:5px 12px;border-radius:999px}
+.faixa strong{display:block;font-family:var(--display);font-weight:600;font-size:clamp(24px,3vw,32px);line-height:1.2;color:var(--azul);margin:12px auto 6px;max-width:900px;letter-spacing:.3px;text-wrap:balance}
+.faixa p{margin:0 auto;max-width:760px;color:var(--texto-suave)}
+
+/* ===== seções ===== */
+.section{padding-block:clamp(56px,8vw,92px)}
+.section--alt{background:var(--fundo-alt)}
+.section--azul{background:#0F1B3D;color:#fff}
+.section-head{text-align:center;max-width:780px;margin:0 auto 44px}
+.eyebrow{display:block;color:var(--laranja);font-weight:600;font-size:12px;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:8px}
+.section-title{font-family:var(--titulo);font-weight:400;text-transform:uppercase;font-size:clamp(44px,5.6vw,64px);line-height:1;margin:0;color:var(--azul);letter-spacing:-.5px;text-wrap:balance}
+.section-title::after{content:"";display:block;width:64px;height:4px;border-radius:3px;background:var(--laranja);margin:18px auto 0}
+.section-head--esq{text-align:left;margin-left:0}
+.section-head--esq .section-title::after{margin-left:0}
+.section-sub{color:var(--texto-suave);margin:16px auto 0;font-size:18px}
+
+.media-row{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px);align-items:center}
+.media-row > *{min-width:0}
+.media-row p{color:var(--texto-suave);margin:0 0 14px}
+.media-row p strong{color:var(--texto)}
+@media (max-width:860px){.media-row{grid-template-columns:1fr}}
+
+.arco-frame{border-radius:220px 220px 20px 20px;overflow:hidden;border:6px solid var(--card);box-shadow:var(--sombra);max-width:440px;margin-inline:auto;background:#DDE3EE}
+.arco-frame img{width:100%;aspect-ratio:3/4;object-fit:cover}
+.arco-legenda{text-align:center;color:var(--texto-suave);font-size:15px;margin-top:14px}
+
+/* números */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
+.stat-num{display:block;font-family:var(--display);font-weight:600;font-size:clamp(46px,6vw,64px);line-height:1;color:#FF8A4C;font-variant-numeric:tabular-nums}
+.stat-label{display:block;color:#C9D4F1;font-weight:400;margin-top:8px;font-size:16px;line-height:1.4}
+@media (max-width:760px){.stats{grid-template-columns:1fr 1fr;row-gap:36px}}
+
+/* cartões de vidro (mesmo acabamento dos cartões do motion) */
+.card,.tempo li,.metodo li,.press-card,.album,.outros,.canais li,.recon{background:var(--vidro);border:1px solid var(--vidro-borda);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:inset 0 1px 0 var(--vidro-brilho),var(--sombra)}
+.card{position:relative}
+.card .num{position:absolute;top:18px;right:20px;font-size:13px;font-weight:600;letter-spacing:1.5px;color:var(--texto-suave)}
+/* arco 3D: os cartões ficam numa curva com profundidade e reagem ao mouse */
+.arco3d{perspective:1500px;position:relative}
+.arco3d::before{content:"";position:absolute;inset:-12% -6% -18%;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 50% 65%,rgba(35,80,216,.20),transparent 62%)}
+.arco3d.grid{transform-style:preserve-3d}
+.arco3d .card{--rx:0deg;--ry:0deg;--lift:0px;--z:0px;transform:rotateY(calc(var(--rot,0deg) + var(--ry))) rotateX(var(--rx)) translate3d(0,var(--lift),calc(var(--z) + var(--zl,0px)));transition:transform .45s cubic-bezier(.22,1,.36,1),box-shadow .45s,border-color .45s;will-change:transform;overflow:visible}
+.arco3d .card::after{content:"";position:absolute;left:10%;right:10%;top:-38%;height:60%;pointer-events:none;border-radius:50%;background:radial-gradient(ellipse at 50% 100%,rgba(150,190,255,.55),rgba(150,190,255,0) 70%);opacity:0;filter:blur(10px);transition:opacity .45s}
+.arco3d .card.is-luz{--lift:-14px;--zl:40px;border-color:rgba(150,190,255,.45);box-shadow:inset 0 1px 0 var(--vidro-brilho),0 30px 60px rgba(15,27,61,.22)}
+.arco3d .card.is-luz::after{opacity:1}
+.arco3d.grid--3 .card:nth-child(1){--rot:9deg}.arco3d.grid--3 .card:nth-child(2){--z:22px}.arco3d.grid--3 .card:nth-child(3){--rot:-9deg}
+.arco3d.grid--4 .card:nth-child(1){--rot:11deg}.arco3d.grid--4 .card:nth-child(2){--rot:4deg;--z:26px}.arco3d.grid--4 .card:nth-child(3){--rot:-4deg;--z:26px}.arco3d.grid--4 .card:nth-child(4){--rot:-11deg}
+.grid--4{grid-template-columns:repeat(4,1fr)}
+@media (max-width:1060px){.grid--4{grid-template-columns:1fr 1fr}}
+@media (max-width:620px){.grid--4{grid-template-columns:1fr}.arco3d .card{--rot:0deg!important}}
+@media (prefers-reduced-motion:reduce){.arco3d .card{transform:none!important}}
+/* cartões */
+.grid{display:grid;gap:22px}
+.grid--3{grid-template-columns:repeat(3,1fr)}
+.grid--2{grid-template-columns:repeat(2,1fr)}
+@media (max-width:960px){.grid--3{grid-template-columns:1fr 1fr}}
+@media (max-width:620px){.grid--3,.grid--2{grid-template-columns:1fr}}
+.card{border-radius:18px;padding:28px;min-width:0;display:flex;flex-direction:column}
+.card h3{font-family:var(--display);font-weight:600;font-size:23px;line-height:1.2;margin:0 0 10px;color:var(--texto)}
+.card p{margin:0;color:var(--texto-suave);font-size:16px}
+.card p b{color:var(--texto)}
+.card-icon{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;margin-bottom:16px}
+.card-icon svg{width:26px;height:26px}
+.icon-azul{background:rgba(35,80,216,.12);color:var(--azul)}
+.icon-laranja{background:rgba(224,96,26,.14);color:var(--laranja)}
+.card .prova{margin-top:auto;padding-top:14px;font-size:14px;color:var(--texto);border-top:1px dashed var(--borda)}
+.card .prova b{color:var(--laranja)}
+.card .prova-espaco{flex:1;min-height:16px}
+
+/* lados da mesa */
+.lados .card{border-top:5px solid var(--azul)}
+.lados .card:nth-child(2){border-top-color:var(--laranja)}
+.lados ul{margin:14px 0 0;padding-left:18px;color:var(--texto);font-size:15px}
+.lados li{margin-bottom:4px}
+
+/* projetos */
+.proj-card{padding:0;overflow:hidden}
+#fichas .proj-card[hidden]{display:none}
+.proj-card img{width:100%;aspect-ratio:4/3;object-fit:cover;background:#DDE3EE}
+.proj-body{padding:22px 24px 24px;display:flex;flex-direction:column;gap:8px;flex:1}
+.ano{align-self:flex-start;background:var(--azul);color:var(--fundo);font-weight:600;font-size:13px;border-radius:999px;padding:3px 12px}
+.proj-body h3{margin:4px 0 2px}
+.proj-body .funcao{margin-top:auto;padding-top:12px;border-top:1px solid var(--borda);font-size:14px;color:var(--texto)}
+.funcao span{color:var(--texto-suave)}
+.filtros{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:-16px 0 32px}
+.filtros button{font-family:var(--corpo);font-weight:500;font-size:14px;padding:9px 18px;border-radius:999px;border:2px solid var(--borda);background:var(--card);color:var(--texto-suave);cursor:pointer}
+.filtros button[aria-pressed="true"]{background:var(--azul);border-color:var(--azul);color:var(--fundo)}
+
+/* álbum */
+.album{border-radius:18px;overflow:hidden;min-width:0}
+.album-palco{position:relative;aspect-ratio:16/10;background:#0F1B3D}
+.album-slide{position:absolute;inset:0;margin:0;opacity:0;transition:opacity .6s ease}
+.album-slide.is-ativa{opacity:1}
+.album-slide img{width:100%;height:100%;object-fit:cover}
+.album-slide figcaption{position:absolute;left:0;right:0;bottom:0;padding:34px 18px 14px;color:#fff;font-weight:500;font-size:15px;background:linear-gradient(transparent,rgba(8,14,32,.85))}
+.album-seta{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;border:0;background:rgba(255,255,255,.9);color:#18203A;font-size:26px;line-height:1;cursor:pointer;display:grid;place-items:center}
+.album-seta--ant{left:12px}.album-seta--prox{right:12px}
+.album-texto{padding:18px 22px 22px}
+.album-texto h3{font-family:var(--display);font-weight:600;font-size:22px;margin:0 0 4px}
+.album-texto p{margin:0;color:var(--texto-suave);font-size:15px}
+
+/* linha do tempo */
+.tempo{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.tempo li{border-radius:18px;padding:22px;min-width:0}
+.tempo time{font-family:var(--display);font-weight:600;font-size:28px;color:var(--laranja);line-height:1}
+.tempo b{display:block;margin:10px 0 4px;font-size:17px;font-weight:600}
+.tempo p{margin:0;color:var(--texto-suave);font-size:15px}
+@media (max-width:960px){.tempo{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.tempo{grid-template-columns:1fr}}
+
+/* lista simples */
+.lista-check{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px}
+.lista-check li{display:grid;grid-template-columns:22px 1fr;gap:10px;color:var(--texto-suave)}
+.lista-check li b{color:var(--texto)}
+.lista-check svg{width:20px;height:20px;color:var(--laranja);margin-top:4px}
+
+/* imprensa */
+.press-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media (max-width:960px){.press-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:620px){.press-grid{grid-template-columns:1fr}}
+.press-card{border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.veiculo{font-weight:600;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--laranja)}
+.press-card h3{margin:0;font-family:var(--display);font-weight:600;font-size:20px;line-height:1.3;color:var(--texto)}
+.press-card blockquote{margin:0;color:var(--texto-suave);font-style:italic;font-size:15px}
+.press-card a{margin-top:auto;font-weight:600;text-decoration:none}
+
+/* links de comprovação */
+.ver{display:inline-flex;align-items:center;gap:6px;font-weight:600;font-size:14px;text-decoration:none;color:var(--azul)}
+.ver:hover{text-decoration:underline}
+.proj-body .ver{margin-top:6px}
+.lados li a,.lista-check a{font-weight:600}
+.outros{grid-column:1/-1;margin-top:12px;border-radius:18px;padding:24px 26px}
+.outros h3{font-family:var(--display);font-weight:600;font-size:22px;margin:0 0 12px}
+.outros ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px 28px}
+.outros li{color:var(--texto-suave);font-size:15px;min-width:0}
+.outros li b{color:var(--texto)}
+@media (max-width:700px){.outros ul{grid-template-columns:1fr}}
+.mocao-fotos{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.mocao-fotos{grid-template-columns:1fr}
+.mocao-fotos img{width:100%;height:auto;object-fit:contain;border-radius:14px;box-shadow:var(--sombra);background:#fff}
+/* confiança */
+.confianca{padding-block:40px;border-bottom:1px solid var(--borda)}
+.confianca p.rot{text-align:center;color:var(--texto-suave);font-size:14px;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin:0 0 18px}
+.confianca ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:10px 28px}
+.confianca li{font-family:var(--display);font-weight:600;font-size:20px;color:var(--texto)}
+/* método */
+.metodo{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:22px;counter-reset:passo}
+.metodo li{position:relative;border-radius:18px;padding:26px 24px;min-width:0}
+.metodo li::before{counter-increment:passo;content:counter(passo);display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--azul);color:var(--fundo);font-weight:600;margin-bottom:14px}
+.metodo h3{font-family:var(--display);font-weight:600;font-size:22px;margin:0 0 6px}
+.metodo p{margin:0;color:var(--texto-suave);font-size:15px}
+@media (max-width:960px){.metodo{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.metodo{grid-template-columns:1fr}}
+/* chamada */
+.cta-band{background:#E0601A;color:#fff;text-align:center}
+.cta-band .section-title{color:#fff}
+.cta-band .section-title::after{background:#fff}
+.cta-band p{max-width:640px;margin:16px auto 26px;font-size:19px}
+
+/* contato */
+.contato-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.contato-grid > *{min-width:0}
+@media (max-width:860px){.contato-grid{grid-template-columns:1fr}}
+.canais{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+.canais li{display:flex;align-items:center;gap:14px;border-radius:14px;padding:14px 16px;min-width:0}
+.canais .ic{width:40px;height:40px;border-radius:50%;flex:none;display:grid;place-items:center;background:rgba(35,80,216,.12);color:var(--azul)}
+.canais .ic svg{width:20px;height:20px}
+.canais div{min-width:0;flex:1}
+.canais small{display:block;color:var(--texto-suave);font-size:13px;font-weight:500}
+.canais span.v{font-weight:600;overflow-wrap:anywhere}
+.canais button,.canais a.ir{font-family:var(--corpo);font-weight:600;font-size:13px;border:1px solid var(--borda);background:transparent;color:var(--texto);border-radius:999px;padding:6px 12px;cursor:pointer;text-decoration:none;white-space:nowrap}
+
+/* rodapé */
+.site-footer{background:#0A1330;color:#B9C4E2;padding-top:56px;font-size:15px}
+.footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:32px}
+@media (max-width:760px){.footer-grid{grid-template-columns:1fr}}
+.site-footer h4{color:#fff;font-size:17px;margin:0 0 14px}
+.site-footer ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.site-footer a{color:#DCE4FA;text-decoration:none}
+.footer-logo{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.footer-logo img{display:block}
+.footer-logo b{font-family:var(--display);font-weight:600;font-size:22px;color:#fff}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.1);margin-top:40px;padding:18px 16px;text-align:center;font-size:14px}
+</style>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="#inicio"><img class="logo" src="img/logo-negativo.svg" alt="Pablo Barreto · Gestão e produção cultural"></a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu" aria-expanded="false"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <nav class="nav" id="nav">
+      <a href="#sobre">Sobre</a>
+      <a href="#servicos">O que eu faço</a>
+      <a href="#trabalhos">Trabalhos</a>
+      <a href="#formacao">Sala de aula</a>
+      <a href="#imprensa">Imprensa</a>
+      <a class="btn btn--laranja" href="#contato">Fale comigo</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+  <section class="page-hero" id="hero" aria-label="Pablo Barreto">
+    <div class="hero-cena" aria-hidden="true"><canvas id="cena"></canvas></div>
+    <span class="rail" aria-hidden="true"></span>
+    <div class="hero-stage" id="stage">
+      <a class="pill" href="#trabalhos"><i class="sq"></i><span>Rio de Janeiro · Niterói · São Gonçalo · Baixada Fluminense</span><svg viewBox="0 0 11 10.5" fill="none" stroke="#fff" stroke-width="1.75" stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true"><path d="M1 0.9l4.2 4.35L1 9.6"/><path d="M6.2 0.9l4.2 4.35L6.2 9.6"/></svg></a>
+      <h1 class="hero-title" id="titulo">Pablo Barreto</h1>
+      <ul class="hero-papeis"><li>Produtor cultural</li><li>Parecerista</li><li>Gestor de projetos</li></ul>
+      <p class="hero-texto">Gestão cultural do edital à prestação de contas. Há mais de dez anos eu ajudo artistas, coletivos, espaços culturais, empresas e prefeituras a aprovar, realizar e fechar projetos sem susto no final.</p>
+      <div class="hero-actions" id="cta">
+        <a class="btn btn--laranja b1" href="#contato"><span>Quero conversar sobre um projeto</span></a>
+        <a class="btn btn--linha b2" href="#trabalhos"><span><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.05" aria-hidden="true"><circle cx="2.3" cy="2.3" r="1.75"/><circle cx="9.7" cy="2.3" r="1.75"/><circle cx="2.3" cy="9.7" r="1.75"/><circle cx="9.7" cy="9.7" r="1.75"/><path d="M3.6 3.9L8.4 8.1"/></svg>Ver meus trabalhos</span></a>
+      </div>
+    </div>
+  </section>
+
+  <div class="faixa">
+    <span class="selo-tag">Os três lados da mesa</span>
+    <strong>Já escrevi edital, já avaliei edital e já executei projeto aprovado em edital.</strong>
+    <p>Por isso eu sei o que a comissão procura, o que o órgão público cobra e o que a prestação de contas precisa mostrar.</p>
+  </div>
+
+  <section class="section" id="sobre">
+    <div class="container media-row">
+      <div>
+        <div class="section-head section-head--esq" style="margin-bottom:24px">
+          <span class="eyebrow">Quem sou eu</span>
+          <h2 class="section-title">A pessoa por trás da ProduPlay</h2>
+        </div>
+        <p>Sou produtor cultural formado pelo <strong>IFRJ</strong>. Comecei ainda na graduação, produzindo colóquios e rodas de conversa na Baixada Fluminense, e desde então circulo entre o palco, a sala de aula e a gestão pública.</p>
+        <p>Na <strong>Secretaria de Turismo e Cultura de São Gonçalo</strong>, fui diretor e gestor cultural e cuidei da Política Nacional Aldir Blanc, da Lei Paulo Gustavo e do Prêmio Cultura Viva, do lançamento dos editais à prestação de contas.</p>
+        <p>Fundei a <strong>ProduPlay</strong>, produtora e escola de formação audiovisual, para juntar tudo isso num lugar só. Hoje também sou co-gestor do Espaço Cultural Panorama, no Colubandê, e dou aula de editais na Fundação de Arte de Niterói.</p>
+      </div>
+      <div>
+        <div class="arco-frame"><img src="img/pablo.jpg" alt="Retrato de Pablo Barreto, de terno cinza, sorrindo"></div>
+        <p class="arco-legenda">Fundador e diretor da ProduPlay</p>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="confianca">
+    <div class="container">
+      <p class="rot">Já trabalhei com e para</p>
+      <ul>
+        <li>Prefeitura de São Gonçalo</li><li>Fundação de Arte de Niterói</li><li>Funjope · João Pessoa</li><li>IFRJ</li><li>UFRJ</li><li>SECEC-RJ</li><li>SMC Rio</li><li>Sessão Vitrine Petrobras</li><li>CEDAE</li><li>Theatro Municipal do Rio de Janeiro (2020)</li><li>Instituto São Paio</li><li>Instituto Ciclos do Brasil</li><li>Mulheres da Parada</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Minha experiência</span>
+        <h2 class="section-title">De cada lado da mesa</h2>
+        <p class="section-sub">Quem contrata um produtor quer saber se o projeto vai ser aprovado, se vai acontecer e se a conta vai fechar. Eu já estive em cada uma dessas cadeiras.</p>
+      </div>
+      <div class="grid grid--3 lados arco3d">
+        <article class="card"><span class="num">01</span><h3>Quem escreve</h3><p>Redigi instrumentos de fomento para a Prefeitura de São Gonçalo e opero as plataformas de repasse das duas esferas.</p><ul><li>TransfereGov (federal) e Converj (estadual RJ)</li><li>Edital Multilinguagens PNAB 02/2024</li><li>Prêmio Legado SG 03/2024</li><li>Representante da Secretaria no GIPP · <a href="https://do.pmsg.rj.gov.br/diario/2025_07_08.pdf" target="_blank" rel="noopener">Diário Oficial</a></li></ul></article>
+        <article class="card"><span class="num">02</span><h3>Quem avalia</h3><p>Integro comissões de parecer, com nomeação em ato oficial.</p><ul><li>Funjope, João Pessoa (PNAB Ciclo 2)</li><li>Prêmio Cultura Viva, São Gonçalo · <a href="https://do.pmsg.rj.gov.br/diario/2025_09_25.pdf" target="_blank" rel="noopener">Diário Oficial</a></li><li>Timóteo, Minas Gerais</li><li>Bancas de Produção Cultural no IFRJ</li></ul></article>
+        <article class="card"><span class="num">03</span><h3>Quem executa</h3><p>Coordeno e produzo projetos aprovados, com nota fiscal e comprovação de cada entrega.</p><ul><li>ICMS/RJ, PNAB e Lei Paulo Gustavo</li><li>Editais da SMC Rio, SECEC-RJ e MTE</li></ul></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="servicos">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Como posso ajudar</span>
+        <h2 class="section-title">O que eu faço</h2>
+        <p class="section-sub">Para artistas, coletivos, espaços culturais, empresas patrocinadoras e prefeituras.</p>
+      </div>
+      <div class="grid grid--4 arco3d">
+        <article class="card"><span class="num">01</span><div class="card-icon icon-azul"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg></div><h3>Projetos para editais</h3><p>Da ideia solta à proposta clara e viável: texto, orçamento e plano de trabalho na linguagem que a comissão avalia, e a prestação de contas no formato que o órgão pede. Cadastro e acompanhamento no <b>TransfereGov</b>, na esfera federal, e no <b>Converj</b>, na esfera estadual do Rio.</p><span class="prova-espaco"></span><p class="prova"><b>Na prática:</b> editais escritos na Prefeitura de São Gonçalo e assessoria técnica no Edital SENAES 01/2025.</p></article>
+        <article class="card"><span class="num">02</span><div class="card-icon icon-laranja"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3 8-8"/><path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h9"/></svg></div><h3>Parecer técnico</h3><p>Análise e avaliação de projetos culturais em comissões de seleção, com critérios claros, notas fundamentadas e parecer escrito.</p><span class="prova-espaco"></span><p class="prova"><b>Na prática:</b> Funjope (PB), Prêmio Cultura Viva (SG), Timóteo (MG) e bancas de Produção Cultural no IFRJ, com nomeação em ato oficial.</p></article>
+        <article class="card"><span class="num">03</span><div class="card-icon icon-azul"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg></div><h3>Produção executiva</h3><p>Cronograma, equipe, fornecedores, licenças e segurança do público, do primeiro contato até a desmontagem. Em espetáculos, festivais, feiras, cursos e obras audiovisuais.</p><span class="prova-espaco"></span><p class="prova"><b>Na prática:</b> Lorca, no Teatro Municipal de São Gonçalo; Bloco do Boi Anchieta; sessão de "Criadas" no Panorama.</p></article>
+        <article class="card"><span class="num">04</span><div class="card-icon icon-laranja"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M8 4v6M16 4v6M7 15h4"/></svg></div><h3>Gestão de equipamentos culturais</h3><p>Programação, ocupação do espaço, equipe, parcerias e sustentabilidade financeira de teatros, bibliotecas e centros culturais.</p><span class="prova-espaco"></span><p class="prova"><b>Na prática:</b> co-gestão do Espaço Cultural Panorama e coordenação executiva do Ponto de Leitura A Casa Amarela.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Como eu trabalho</span>
+        <h2 class="section-title">Do primeiro café à prestação de contas</h2>
+        <p class="section-sub">O mesmo caminho para um espetáculo, um festival, um curso ou uma biblioteca. Você sabe o que acontece em cada etapa e quem cuida de quê.</p>
+      </div>
+      <ol class="metodo">
+        <li><h3>Diagnóstico</h3><p>Entendo a ideia, o público, o prazo e o dinheiro possível. Digo com franqueza em qual edital ou lei ela cabe.</p></li>
+        <li><h3>Projeto</h3><p>Escrevo proposta, orçamento e plano de trabalho na linguagem que a comissão avalia.</p></li>
+        <li><h3>Execução</h3><p>Coordeno equipe, fornecedores, licenças e segurança, com cada entrega documentada.</p></li>
+        <li><h3>Prestação de contas</h3><p>Organizo notas, relatórios e comprovações no formato do órgão, para o projeto fechar sem pendência.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" id="trabalhos">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Portfólio</span>
+        <h2 class="section-title">Trabalhos realizados</h2>
+        <p class="section-sub">Cada projeto com a minha função e a fonte do recurso. Filtre pela área que interessa.</p>
+      </div>
+      <div class="filtros" role="group" aria-label="Filtrar trabalhos">
+        <button type="button" id="f-todos" data-f="todos" aria-pressed="true">Todos</button>
+        <button type="button" id="f-audio" data-f="audiovisual" aria-pressed="false">Audiovisual</button>
+        <button type="button" id="f-cena" data-f="cena" aria-pressed="false">Palco e rua</button>
+        <button type="button" id="f-leitura" data-f="leitura" aria-pressed="false">Leitura</button>
+        <button type="button" id="f-form" data-f="formacao" aria-pressed="false">Formação</button>
+        <button type="button" id="f-moda" data-f="moda" aria-pressed="false">Moda</button>
+      </div>
+      <div class="grid grid--3" id="fichas">
+        <article class="card proj-card" data-a="moda"><img src="img/moda-atlantica.jpg" alt="Ilustração de uma mulher negra de turbante e vestido de retalhos diante do sol e do mar" loading="lazy"><div class="proj-body"><span class="ano">2026</span><h3>Moda Atlântica São Gonçalo</h3><p>Proposta de moda sustentável selecionada no Edital Moda Sustentável nº 02/2026 da SECEC-RJ, com ações presenciais em São Gonçalo e termo de execução cultural firmado com o Estado do Rio de Janeiro.</p><p class="funcao"><span>Função:</span> coordenação executiva · <span>Fomento:</span> Edital Moda Sustentável 02/2026, SECEC-RJ / PNAB</p></div></article>
+        <article class="card proj-card" data-a="audiovisual"><img src="img/criadas.jpg" alt="Cartaz da exibição gratuita de Criadas" loading="lazy"><div class="proj-body"><span class="ano">2026</span><h3>Sessão Vitrine Petrobras: Criadas</h3><p>Exibição gratuita do longa de Carol Rodrigues no Espaço Cultural Panorama, com a ONG Mulheres da Parada e o ator Leandro Firmino.</p><p class="funcao"><span>Função:</span> produção · <span>Fomento:</span> Vitrine Filmes e rede local</p><a class="ver" href="https://www.instagram.com/p/DaYR9rSlgK8/" target="_blank" rel="noopener">Ver no Instagram ↗</a></div></article>
+        <article class="card proj-card" data-a="cena"><img src="img/bloco-do-boi.jpg" alt="Cartaz do ensaio do Bloco do Boi" loading="lazy"><div class="proj-body"><span class="ano">2026</span><h3>Bloco do Boi Anchieta</h3><p>Carnaval de rua em Anchieta, na Zona Norte do Rio.</p><p class="funcao"><span>Função:</span> coordenador geral · <span>Fomento:</span> Edital Bloco nas Ruas RJ 2026</p><a class="ver" href="https://www.instagram.com/p/DUYTJvGjnr6/" target="_blank" rel="noopener">Ver no Instagram ↗</a></div></article>
+        <article class="card proj-card" data-a="cena"><img src="img/guardioes.jpg" alt="Peça de divulgação dos Guardiões do Rio" loading="lazy"><div class="proj-body"><span class="ano">2026</span><h3>Feira Guardiões das Águas</h3><p>Feira de educação ambiental com a CEDAE e horta sustentável.</p><p class="funcao"><span>Função:</span> produtor · <span>Fomento:</span> Projeto Guardiões do Rio</p><a class="ver" href="https://www.instagram.com/p/DXO9HV9FA19/" target="_blank" rel="noopener">Ver no Instagram ↗</a></div></article>
+        <article class="card proj-card" data-a="leitura"><img src="img/casa-amarela-clip.jpg" alt="Matéria de jornal sobre a Biblioteca A Casa Amarela" loading="lazy"><div class="proj-body"><span class="ano">2026</span><h3>Ponto de Leitura A Casa Amarela</h3><p>Biblioteca comunitária no Colubandê, em São Gonçalo, no ano do Rio Capital Mundial do Livro.</p><p class="funcao"><span>Função:</span> coordenador executivo · <span>Fomento:</span> Edital Pontos de Leitura, SMC Rio</p><a class="ver" href="https://www.instagram.com/reel/DSS8zb3jom-/" target="_blank" rel="noopener">Ver o vídeo ↗</a></div></article>
+        <article class="card proj-card" data-a="leitura formacao"><img src="img/parque-de-ideias.jpg" alt="Cartaz do Parque de Ideias 2026" loading="lazy"><div class="proj-body"><span class="ano">2025–26</span><h3>Parque de Ideias</h3><p>Cursos e oficinas de férias na Biblioteca Parque Estadual.</p><p class="funcao"><span>Função:</span> assistente de produção · <span>Fomento:</span> SEI-RJ</p></div></article>
+        <article class="card proj-card" data-a="cena"><img src="img/lorca.jpg" alt="Elenco de Lorca em cena" loading="lazy"><div class="proj-body"><span class="ano">2025</span><h3>Lorca, Experimentos de uma Paixão</h3><p>Espetáculo sobre a vida e a obra de Federico García Lorca.</p><p class="funcao"><span>Função:</span> produção executiva · <span>Fomento:</span> Teatro Municipal de São Gonçalo</p><a class="ver" href="https://www.osaogoncalo.com.br/cultura-e-lazer/158261/teatro-municipal-de-sao-goncalo-recebe-peca-que-fala-sobre-resistencia-politica-e-cultural" target="_blank" rel="noopener">Ler a matéria ↗</a></div></article>
+        <article class="card proj-card" data-a="cena"><img src="img/jodun.jpg" alt="Cartaz do Festival A Jodun Artes Negras" loading="lazy"><div class="proj-body"><span class="ano">2025</span><h3>Festival A Jodun Artes Negras</h3><p>Festival de artes negras no Centro Cultural Cauby Peixoto, em Niterói.</p><p class="funcao"><span>Função:</span> produtor de palco · <span>Fomento:</span> Prefeitura de Niterói</p></div></article>
+        <article class="card proj-card" data-a="cena"><img src="img/trancando.jpg" alt="Oficina do Trançando Cultura" loading="lazy"><div class="proj-body"><span class="ano">2024</span><h3>Trançando Cultura</h3><p>Cultura afro-brasileira e tranças com o Instituto Ayó.</p><p class="funcao"><span>Função:</span> produtor cultural · <span>Fomento:</span> Lei Paulo Gustavo, SMC Rio</p></div></article>
+        <article class="card proj-card" data-a="formacao audiovisual"><img src="img/oficina-podcast.jpg" alt="Pablo dando aula de audiovisual" loading="lazy"><div class="proj-body"><span class="ano">2024</span><h3>Curso de Produção Executiva no Audiovisual</h3><p>Sete módulos gratuitos, do fundamento à distribuição, no Espaço Cultural Panorama.</p><p class="funcao"><span>Função:</span> idealizador e coordenador · <span>Fomento:</span> Lei Paulo Gustavo, São Gonçalo</p><a class="ver" href="https://www.instagram.com/p/DChsczvJHm0/" target="_blank" rel="noopener">Ver no Instagram ↗</a></div></article>
+        <article class="card proj-card" data-a="audiovisual"><img src="img/eco.jpg" alt="Cartaz da videoperformance Eco" loading="lazy"><div class="proj-body"><span class="ano">2023</span><h3>Eco</h3><p>Videoperformance da CIA Beko, da periferia de São Gonçalo, com direção de Kátia Fajardo.</p><p class="funcao"><span>Função:</span> produção executiva · <span>Fomento:</span> Cultura Presente nas Redes 2, SECEC-RJ</p><a class="ver" href="https://www.youtube.com/watch?v=KJMa5LxRf3Q" target="_blank" rel="noopener">Assistir no YouTube ↗</a></div></article>
+        <article class="card proj-card" data-a="cena formacao"><img src="img/proart.jpg" alt="Cartaz do Circuito ProArt no Teatro Dulcina" loading="lazy"><div class="proj-body"><span class="ano">2022</span><h3>Circuito ProArt</h3><p>Temporadas no Teatro Dulcina pelo Fórum de Ciência e Cultura da UFRJ.</p><p class="funcao"><span>Função:</span> produtor e curadoria · <span>Fomento:</span> UFRJ</p><a class="ver" href="https://eventos.ufrj.br/evento/25053/" target="_blank" rel="noopener">Ver na UFRJ ↗</a></div></article>
+        <article class="card proj-card" data-a="audiovisual"><img src="img/anastacia.jpg" alt="Cartaz de Anastácia Alimentada" loading="lazy"><div class="proj-body"><span class="ano">2021</span><h3>Anastácia Alimentada</h3><p>Nanocurta do edital 70 Olhares sobre Direitos Humanos.</p><p class="funcao"><span>Função:</span> produtor · <span>Fomento:</span> Edital 70 Olhares</p><a class="ver" href="https://www.youtube.com/watch?v=VyPhU7W3dXw" target="_blank" rel="noopener">Assistir no YouTube ↗</a></div></article>
+        <article class="card proj-card" data-a="audiovisual"><img src="img/casinha.jpg" alt="Cartaz do documentário Da Casinha para a Vida" loading="lazy"><div class="proj-body"><span class="ano">2020</span><h3>Da Casinha para a Vida</h3><p>Documentário premiado sobre parto humanizado.</p><p class="funcao"><span>Função:</span> assistente de produção</p><a class="ver" href="https://www.instagram.com/p/CDbvPOgJVAt/" target="_blank" rel="noopener">Ver no Instagram ↗</a></div></article>
+        <article class="card proj-card" data-a="audiovisual"><img src="img/botadao.jpg" alt="Capa do single Botadão" loading="lazy"><div class="proj-body"><span class="ano">2021</span><h3>Botadão</h3><p>Registro fonográfico, com filiação à UBC como produtor fonográfico.</p><p class="funcao"><span>Função:</span> cantor e produtor</p><a class="ver" href="https://open.spotify.com/intl-pt/album/46rpVah0fxhhYInBpcxpTL" target="_blank" rel="noopener">Ouvir no Spotify ↗</a></div></article>
+      <div class="outros">
+        <h3>Mais registros com link</h3>
+        <ul>
+          <li><b>MaduCria · Grande Madureira, 2025.</b> Projeto pela Lei de Incentivo ICMS/RJ, com patrocínio Budweiser e 1.369 pessoas impactadas. <a class="ver" href="https://www.instagram.com/maducria_/" target="_blank" rel="noopener">Instagram ↗</a></li>
+          <li><b>Entre músicos e pavões, o choro, 2021.</b> Documentário. <a class="ver" href="https://www.youtube.com/watch?v=jmMpw_lwbf8" target="_blank" rel="noopener">YouTube ↗</a></li>
+          <li><b>Festa das Turmas de fantasia como inclusão, 2025.</b> Homenagem à equipe Bruno Magia. <a class="ver" href="https://www.youtube.com/watch?v=BCRdnuQk6-4" target="_blank" rel="noopener">YouTube ↗</a></li>
+          <li><b>II Conferência Interuniversitária de Cultura do RJ, 2021.</b> Produção das pré-conferências. <a class="ver" href="https://ficrj.org/conferencia/ficha-tecnica/" target="_blank" rel="noopener">Ficha técnica ↗</a></li>
+          <li><b>Curso de Produção Executiva, 2024.</b> Divulgação das inscrições. <a class="ver" href="https://www.instagram.com/p/DAG4bCNR83O/" target="_blank" rel="noopener">Instagram ↗</a></li>
+        </ul>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Em campo</span>
+        <h2 class="section-title">Onde o trabalho acontece</h2>
+        <p class="section-sub">No palco, na coxia e na sala de aula. As fotos passam sozinhas, e as setas deixam você ir no seu ritmo.</p>
+      </div>
+      <div class="grid grid--2">
+        <article class="album">
+          <div class="album-palco">
+            <figure class="album-slide is-ativa"><img src="img/panorama-1.jpg" alt="Plateia cheia no teatro do Espaço Cultural Panorama"><figcaption>Casa cheia no Espaço Cultural Panorama, no Colubandê</figcaption></figure>
+            <figure class="album-slide"><img src="img/panorama-2.jpg" alt="Equipe e público no teatro do Panorama" loading="lazy"><figcaption>Coordenação em campo, antes de abrir as portas</figcaption></figure>
+            <figure class="album-slide"><img src="img/campo-1.jpg" alt="Pablo conversando com a equipe nos bastidores" loading="lazy"><figcaption>Bastidores de produção</figcaption></figure>
+          </div>
+          <div class="album-texto"><h3>Palco e bastidores</h3><p>Co-gestão e coordenação de produção no teatro de 270 lugares.</p></div>
+        </article>
+        <article class="album">
+          <div class="album-palco">
+            <figure class="album-slide is-ativa"><img src="img/palestra.jpg" alt="Pablo palestrando para um grupo"><figcaption>Palestra sobre Cultura Viva e captação de recursos</figcaption></figure>
+            <figure class="album-slide"><img src="img/oficina-podcast.jpg" alt="Oficina com adolescentes" loading="lazy"><figcaption>Oficina de audiovisual em São Gonçalo</figcaption></figure>
+            <figure class="album-slide"><img src="img/campo-2.jpg" alt="Pablo no Festival A Jodun Artes Negras" loading="lazy"><figcaption>No Festival A Jodun Artes Negras, em Niterói</figcaption></figure>
+          </div>
+          <div class="album-texto"><h3>Formação e território</h3><p>Aulas, oficinas e palestras para quem está começando e para quem já produz.</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="formacao">
+    <div class="container media-row">
+      <img src="img/fan.jpg" alt="Certificado da 1ª edição do curso de capacitação para editais da FAN" style="border-radius:18px;box-shadow:var(--sombra)">
+      <div>
+        <div class="section-head section-head--esq" style="margin-bottom:22px">
+          <span class="eyebrow">Sala de aula</span>
+          <h2 class="section-title">Ensinar a escrever projeto</h2>
+        </div>
+        <ul class="lista-check">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg><span><b>FAN · Niterói, 2025 e 2026.</b> IA para Projetos Culturais, Prestação de Contas e Leitura Técnica de Editais. A 2ª edição teve 480 inscritos, online e na Biblioteca Parque. <a href="https://www.youtube.com/@CursodeCapacita%C3%A7%C3%A3oemEditaisCul" target="_blank" rel="noopener">Aulas no YouTube ↗</a></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg><span><b>IFRJ · Nilópolis, 2026.</b> Parecerista em banca de Produção Cultural II e em banca de TCC sobre gestão de riscos.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg><span><b>Projeto Neaca, 2025.</b> Oficina de podcast para adolescentes, com o Programa Petrobras Socioambiental. <a href="https://www.instagram.com/p/DL93spkR348/" target="_blank" rel="noopener">Ver no Instagram ↗</a></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg><span><b>Descomplica Produção, 2023.</b> Workshop sobre a Lei Paulo Gustavo, com alcance nacional.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container media-row">
+      <div class="mocao-fotos">
+        <img src="img/mocao-documento.jpg" alt="Certificado da Moção Honrosa Rio sem LGBTIfobia" loading="lazy">
+        <img src="img/certificado-igualdade-racial.jpg" alt="Certificado de palestrante da Coordenadoria de Promoção de Igualdade Racial de São Gonçalo" loading="lazy">
+      </div>
+      <div>
+        <div class="section-head section-head--esq" style="margin-bottom:22px"><span class="eyebrow">Reconhecimento</span><h2 class="section-title">Reconhecimentos oficiais</h2></div>
+        <p>Concedida pelo Centro de Cidadania LGBTI+ Metropolitana I, em Niterói, equipamento do programa <strong>Rio sem LGBTIfobia</strong> do Estado do Rio de Janeiro, pela contribuição à cidadania LGBTI+ e ao combate à intolerância por meio da arte e da cultura.</p>
+        <p>Também recebi o certificado de palestrante da <strong>Coordenadoria de Promoção de Igualdade Racial de São Gonçalo</strong>, no Projeto de Fortalecimento de Espaços Religiosos e Culturais, por falar sobre patrimônio imaterial, Cultura Viva e recursos para espaços de matriz africana.</p>
+        <a class="ver" href="https://www.instagram.com/p/DKispk1ut33/" target="_blank" rel="noopener">Ver a entrega no Instagram ↗</a>
+      </div>
+    </div>
+  </section>
+      <ol class="tempo">
+        <li><time>2019</time><b>Baixada Fluminense</b><p>Produtor executivo do IX Colóquio de Políticas Culturais da Baixada, no IFRJ Nilópolis.</p></li>
+        <li><time>2021–22</time><b>UFRJ</b><p>Produção da II Conferência Interuniversitária de Cultura e curadoria do Circuito ProArt.</p></li>
+        <li><time>2024–25</time><b>Gestão pública</b><p>Diretor e gestor cultural na Secretaria de Turismo e Cultura de São Gonçalo.</p></li>
+        <li><time>2025–26</time><b>Sala de aula e território</b><p>Docente na FAN, parecerista em três estados e co-gestor do Espaço Cultural Panorama.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container media-row" style="align-items:start">
+      <div>
+        <div class="section-head section-head--esq" style="margin-bottom:22px"><span class="eyebrow">Formação</span><h2 class="section-title">De onde vem o método</h2></div>
+        <ul class="lista-check">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg><span><b>Bacharelado em Produção Cultural</b>, IFRJ (2025)</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg><span><b>MBA em Gestão de Pessoas e Empowerment 5.0</b>, UFRJ (2024)</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg><span><b>Especialização em Gestão de Projetos e Negócios em TI</b>, IFRJ (concluída)</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg><span><b>Tecnólogo em Marketing Digital</b>, UniFavip / Estácio (2023)</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg><span><b>Trilhas Escult / Ministério da Cultura</b>: analista e parecerista, gestão de projetos e gestão municipal de cultura (480h)</span></li>
+        </ul>
+      </div>
+      <div>
+        <div class="section-head section-head--esq" style="margin-bottom:22px"><span class="eyebrow">Pesquisa</span><h2 class="section-title">O que eu estudo</h2></div>
+        <ul class="lista-check">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg><span><b>Engenharia do Entretenimento e a Gestão de Riscos para a Preservação da Vida.</b> XVI Simpósio Internacional ESPM, 2026. <a href="https://www.espm.br/wp-content/uploads/2026-XVI-Simposio-ESPM-Anais-Congresso.pdf" target="_blank" rel="noopener">Ler ↗</a></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg><span><b>Reggaetón e Patrimônio Imaterial.</b> 21º Enecult, Salvador, 2025. <a href="https://www.enecult.ufba.br/modulos/submissao/Upload-751/161754.pdf" target="_blank" rel="noopener">Ler ↗</a></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg><span><b>Engenharia Cênica na formação em Produção Cultural.</b> 8º Encontro Nacional do Forcult, 2025. <a href="https://drive.google.com/file/d/1eNqK9EqMEGm_gj5eZKv4pgKyzrwhd8qS/view" target="_blank" rel="noopener">Ler ↗</a></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg><span><b>Gestão de Projetos e Políticas Culturais: práticas adaptativas na produção cultural.</b> 8º Encontro Nacional do Forcult, 2025. <a href="https://drive.google.com/file/d/1RsT-xO4plUOHs7IqMiIafcdRzT5w1qBZ/view" target="_blank" rel="noopener">Ler ↗</a></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg><span><b>Rappers negras: representatividade, diversidade, gênero e sexualidade.</b> Revista Extraprensa, USP, 2019. <a href="https://revistas.usp.br/extraprensa/pt_BR/article/view/153984" target="_blank" rel="noopener">Ler ↗</a></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg><span><b>Análise das apresentações da performance através do público.</b> Revista Extraprensa, USP, 2019. <a href="https://revistas.usp.br/extraprensa/pt_BR/article/view/153485" target="_blank" rel="noopener">Ler ↗</a></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg><span><b>Produção editorial</b> dos e-books <a href="https://bit.ly/458bERw" target="_blank" rel="noopener">"Desafios à Economia Criativa da Cultura" ↗</a> (FAPERJ) e <a href="https://drive.google.com/file/d/1ni_nSb9o7B3if4vmaqcCxRSrOyg22CZX/view" target="_blank" rel="noopener">"Deixa Eu Brincar de Ser Feliz" ↗</a> (SMC Rio).</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="imprensa">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Clipping</span>
+        <h2 class="section-title">Na imprensa</h2>
+        <p class="section-sub">Matérias que publicaram o crédito da produção.</p>
+      </div>
+      <div class="press-grid">
+        <article class="press-card"><span class="veiculo">Radar News RJ · 08/06/2026</span><h3>Humorista Camila Cardoso arranca risadas em São Gonçalo</h3><blockquote>"Pablo Barreto atua como co-gestor e coordenador de produção no Espaço Cultural Panorama"</blockquote><a href="https://radarnewsrj.com.br/2026/06/08/humorista-camila-cardoso-arranca-risadas-em-sao-goncalo/" target="_blank" rel="noopener">Ler matéria →</a></article>
+        <article class="press-card"><span class="veiculo">O São Gonçalo · 30/06/2026</span><h3>Sessão gratuita de "Criadas" em São Gonçalo</h3><blockquote>"a produção de Pablo Barreto, da ProduPlay"</blockquote><a href="https://www.osaogoncalo.com.br/sao-goncalo/166740/criadas-ong-mulheres-da-parada-promove-sessao-gratuita-de-filme-premiado-em-sao-goncalo" target="_blank" rel="noopener">Ler matéria →</a></article>
+        <article class="press-card"><span class="veiculo">Leste Fluminense News · 01/07/2026</span><h3>ONG Mulheres da Parada promove sessão gratuita de filme premiado</h3><blockquote>"a produção de Pablo Barreto, da ProduPlay"</blockquote><a href="https://lestefluminensenews.com.br/2026/07/01/criadas-ong-mulheres-da-parada-promove-sessao-gratuita-de-filme-premiado-em-sao-goncalo/" target="_blank" rel="noopener">Ler matéria →</a></article>
+        <article class="press-card"><span class="veiculo">Folha do Pacheco · 02/07/2026</span><h3>Filme premiado "Criadas" terá sessão gratuita com debate</h3><blockquote>"correalização com o Instituto São Paio e produção da ProduPlay"</blockquote><a href="https://folhadopacheco.com.br/noticia/2941/filme-premiado-criadas-tera-sessao-gratuita-com-debate-e-atracoes-culturais-em-sao-goncalo.html" target="_blank" rel="noopener">Ler matéria →</a></article>
+        <article class="press-card"><span class="veiculo">CL Web Rádio · 07/2026</span><h3>"Criadas": sessão gratuita de filme premiado em São Gonçalo</h3><blockquote>"a produção de Pablo Barreto, da ProduPlay"</blockquote><a href="https://www.clwebradio.com/noticias/criadas-ong-mulheres-da-parada-promove-sessao-gratuita-de-filme-premiado-em-sao-goncalo/" target="_blank" rel="noopener">Ler matéria →</a></article>
+        <article class="press-card"><span class="veiculo">O São Gonçalo · 2025</span><h3>Teatro Municipal de São Gonçalo recebe peça que fala sobre resistência política e cultural</h3><blockquote>Lorca, Experimentos de uma Paixão</blockquote><a href="https://www.osaogoncalo.com.br/cultura-e-lazer/158261/teatro-municipal-de-sao-goncalo-recebe-peca-que-fala-sobre-resistencia-politica-e-cultural" target="_blank" rel="noopener">Ler matéria →</a></article>
+        <article class="press-card"><span class="veiculo">O Dia · 08/2025</span><h3>Teatro Municipal de São Gonçalo recebe peça sobre resistência política e cultural</h3><blockquote>Lorca, Experimentos de uma Paixão</blockquote><a href="https://odia.ig.com.br/sao-goncalo/2025/08/7111534-teatro-municipal-de-sao-goncalo-recebe-peca-que-fala-sobre-resistencia-politica-e-cultural.html" target="_blank" rel="noopener">Ler matéria →</a></article>
+        <article class="press-card"><span class="veiculo">Gazeta da Semana · 2025</span><h3>Teatro Popular Oscar Niemeyer recebe releitura de Nelson Rodrigues pela Graco Cia de Atores</h3><a href="https://gazetadasemana.com.br/noticia/255605/teatro-popular-oscar-niemeyer-recebe-releitura-de-nelson-rodrigues-pela-graco-cia-de-atores" target="_blank" rel="noopener">Ler matéria →</a></article>
+        <article class="press-card"><span class="veiculo">O Dia · 11/2025</span><h3>Graco Cia de Atores realiza oficina sobre Nelson Rodrigues no Teatro Popular Oscar Niemeyer</h3><a href="https://odia.ig.com.br/niteroi/2025/11/amp/7161049-graco-cia-de-atores-realiza-oficina-sobre-nelson-rodrigues-no-teatro-popular-oscar-niemeyer.html" target="_blank" rel="noopener">Ler matéria →</a></article>
+        <article class="press-card"><span class="veiculo">A Tribuna RJ · 2024</span><h3>São Gonçalo abre vagas para curso gratuito de produção audiovisual</h3><blockquote>Curso de Produção Executiva, ProduPlay</blockquote><a href="https://www.atribunarj.com.br/materia/sao-goncalo-abre-vagas-para-curso-gratuito-de-producao-audiovisual" target="_blank" rel="noopener">Ler matéria →</a></article>
+        <article class="press-card"><span class="veiculo">O Fluminense · 09/2024</span><h3>Curso gratuito de produção audiovisual está com vagas abertas em São Gonçalo</h3><blockquote>Curso de Produção Executiva, ProduPlay</blockquote><a href="https://www.ofluminense.com.br/cidades/sao-goncalo/2024/09/1274275-curso-gratuito-de-producao-audiovisual-esta-com-vagas-abertas-em-sao-goncalo.html" target="_blank" rel="noopener">Ler matéria →</a></article>
+        <article class="press-card"><span class="veiculo">O Fluminense · 11/2024</span><h3>São Gonçalo oferece curso de Produção Executiva no Audiovisual</h3><blockquote>Curso de Produção Executiva, ProduPlay</blockquote><a href="https://www.ofluminense.com.br/cidades/sao-goncalo/2024/11/1275059-sao-goncalo-oferece-curso-de-producao-executiva-no-audiovisual.html" target="_blank" rel="noopener">Ler matéria →</a></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section cta-band">
+    <div class="container">
+      <h2 class="section-title">Tem um edital aberto ou um projeto parado?</h2>
+      <p>Conte o que você quer realizar e o prazo. Eu respondo com o caminho possível e o que ele exige.</p>
+      <a class="btn btn--claro" href="#contato">Falar comigo</a>
+    </div>
+  </section>
+
+  <section class="section" id="contato">
+    <div class="container contato-grid">
+      <div>
+        <div class="section-head section-head--esq" style="margin-bottom:22px"><span class="eyebrow">Contato</span><h2 class="section-title">Fale comigo</h2></div>
+        <p style="color:var(--texto-suave);margin:0 0 14px">Atendo artistas, coletivos, espaços culturais, empresas e prefeituras no Rio de Janeiro e, online, em qualquer lugar do país.</p>
+        <p style="color:var(--texto-suave);margin:0">Para orçamento, diga em poucas linhas o tipo de projeto, a data prevista e se há recurso aprovado ou edital em vista.</p>
+      </div>
+      <ul class="canais">
+        <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span><div><small>E-mail</small><span class="v">contato@produplay.com.br</span></div><button type="button" id="c-mail" data-copy="contato@produplay.com.br">Copiar</button></li>
+        <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 1-13.5 7.8L3 21l1.3-4.4A9 9 0 1 1 21 12z"/></svg></span><div><small>WhatsApp comercial</small><span class="v">(21) 9 7343-3073</span></div><button type="button" id="c-zap" data-copy="21973433073">Copiar</button></li>
+        <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></span><div><small>Instagram</small><span class="v">@soupablobarreto</span></div><a class="ir" href="https://www.instagram.com/soupablobarreto/" target="_blank" rel="noopener">Abrir</a></li>
+        <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5a2 2 0 0 1 2-2h12v18H6a2 2 0 0 1-2-2z"/><path d="M8 7h6M8 11h6"/></svg></span><div><small>Currículo Lattes</small><span class="v">lattes.cnpq.br/9436630664845774</span></div><a class="ir" href="http://lattes.cnpq.br/9436630664845774" target="_blank" rel="noopener">Abrir</a></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <div class="footer-logo"><img src="img/logo-rodape.svg" alt="Pablo Barreto · Gestão e produção cultural" style="height:84px;width:auto;border-radius:0;background:none"></div>
+      <p style="margin:0">Produtor cultural, parecerista e gestor de projetos. Fundador e diretor da ProduPlay, produtora e escola de formação audiovisual.</p>
+    </div>
+    <div>
+      <h4>Contato</h4>
+      <ul><li>contato@produplay.com.br</li><li>(21) 9 7343-3073</li><li><a href="https://www.instagram.com/soupablobarreto/" target="_blank" rel="noopener">@soupablobarreto</a></li><li><a href="https://www.produplay.com.br" target="_blank" rel="noopener">produplay.com.br</a></li></ul>
+    </div>
+    <div>
+      <h4>Navegação</h4>
+      <ul><li><a href="#sobre">Sobre</a></li><li><a href="#servicos">O que eu faço</a></li><li><a href="#trabalhos">Trabalhos</a></li><li><a href="#formacao">Sala de aula</a></li><li><a href="#imprensa">Imprensa</a></li></ul>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 Pablo Barreto · ProduPlay · Rio de Janeiro</div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="particulas.js"></script>
+<script>
+/* ===== Entrada (Web Animations API), mesma linha do tempo do motion original ===== */
+(function(){
+  var h=document.documentElement;
+  if(!h.classList.contains('intro')||!('animate' in h)){h.classList.remove('intro');return}
+  var EXPO='cubic-bezier(.16,1,.3,1)',QUART='cubic-bezier(.25,1,.5,1)',SHUTTER='cubic-bezier(.76,0,.24,1)';
+  var d=matchMedia('(max-width:510.98px)').matches?.75:1;
+  var $=function(q){return document.querySelector(q)},$$=function(q){return [].slice.call(document.querySelectorAll(q))};
+  function go(){
+    var tw=[],h1=$('#titulo'),orig=h1.innerHTML;
+    var words=h1.textContent.trim().split(/\s+/);
+    h1.innerHTML=words.map(function(w){return '<span class="w"><span>'+w+'</span></span>'}).join(' ');
+    var opt=function(delay,dur,ease){return {delay:delay*1000,duration:dur*1000,easing:ease,fill:'backwards'}};
+    var fade=function(el,dy,delay,dur){if(el)tw.push(el.animate([{opacity:0,transform:'translate(0,'+dy*d+'px)'},{opacity:1,transform:'translate(0,0)'}],opt(delay,dur,QUART)))};
+    fade($('.brand'),-8,.15,.8); fade($('.nav'),-8,.25,.8);
+    var rail=$('.rail');if(rail)tw.push(rail.animate([{transform:'scale(1,0)',opacity:1},{transform:'scale(1,1)',opacity:1}],opt(.35,.9,EXPO)));
+    var pill=$('.pill');if(pill)tw.push(pill.animate([{clipPath:'inset(0 100% 0 0)',opacity:1},{clipPath:'inset(0 0% 0 0)',opacity:1}],opt(.30,.75,SHUTTER)));
+    var wt=$$('#titulo .w>span').map(function(sp,i){var a=sp.animate([{transform:'translate(0,132%)'},{transform:'translate(0,0)'}],opt(.45+i*.055,1.05,EXPO));return a});
+    tw.push(h1.animate([{opacity:1},{opacity:1}],opt(0,.1,QUART)));wt.forEach(function(a){tw.push(a)});
+    fade($('.hero-papeis'),12,.85,.9); fade($('.hero-texto'),12,.85,.9);
+    var b1=$('.b1'),b2=$('.b2');
+    if(b1){tw.push(b1.animate([{clipPath:'inset(100% 0 0 0)',opacity:1},{clipPath:'inset(0% 0 0 0)',opacity:1}],opt(1.05,.75,EXPO)));fade(b1.querySelector('span'),8,1.15,.7)}
+    if(b2){tw.push(b2.animate([{clipPath:'inset(100% 0 0 0)',opacity:1},{clipPath:'inset(0% 0 0 0)',opacity:1}],opt(1.13,.75,EXPO)));fade(b2.querySelector('span'),8,1.23,.7)}
+    h.classList.remove('intro');
+    Promise.all(wt.map(function(a){return a.finished})).then(function(){h1.innerHTML=orig}).catch(function(){h1.innerHTML=orig});
+    Promise.all(tw.map(function(a){return a.finished})).then(function(){tw.forEach(function(a){try{a.cancel()}catch(e){}});h.classList.add('intro-done')}).catch(function(){h.classList.add('intro-done')});
+  }
+  var start=function(){requestAnimationFrame(go)};
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(start,start);else start();
+})();
+
+(function(){ /* inclinação 3D dos cartões de vidro ao passar o mouse */
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches||!matchMedia('(hover:hover)').matches) return;
+  document.querySelectorAll('.arco3d .card').forEach(function(c){
+    c.addEventListener('pointerenter',function(){c.classList.add('is-luz')});
+    c.addEventListener('pointermove',function(e){var r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.setProperty('--ry',(x*10)+'deg');c.style.setProperty('--rx',(-y*8)+'deg')});
+    c.addEventListener('pointerleave',function(){c.classList.remove('is-luz');c.style.setProperty('--ry','0deg');c.style.setProperty('--rx','0deg')});
+  });
+})();
+
+(function(){
+  var t=document.getElementById('nav-toggle'),n=document.getElementById('nav');
+  t.addEventListener('click',function(){var o=n.classList.toggle('open');t.setAttribute('aria-expanded',o)});
+  n.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){n.classList.remove('open');t.setAttribute('aria-expanded','false')})});
+
+  var bts=[].slice.call(document.querySelectorAll('.filtros button')),fichas=[].slice.call(document.querySelectorAll('#fichas .proj-card'));
+  bts.forEach(function(b){b.addEventListener('click',function(){var f=b.dataset.f;bts.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});fichas.forEach(function(el){el.hidden=!(f==='todos'||el.dataset.a.split(' ').indexOf(f)>-1)})})});
+
+  var calmo=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('.album').forEach(function(al){
+    var s=[].slice.call(al.querySelectorAll('.album-slide')),i=0,rel=null,p=al.querySelector('.album-palco');
+    function ver(k){i=(k+s.length)%s.length;s.forEach(function(f,j){f.classList.toggle('is-ativa',j===i)})}
+    ['ant','prox'].forEach(function(d){var b=document.createElement('button');b.type='button';b.className='album-seta album-seta--'+d;b.setAttribute('aria-label',d==='ant'?'Foto anterior':'Próxima foto');b.innerHTML=d==='ant'?'&#8249;':'&#8250;';b.addEventListener('click',function(){ver(i+(d==='ant'?-1:1));tocar()});p.appendChild(b)});
+    function tocar(){clearInterval(rel);if(!calmo)rel=setInterval(function(){if(!document.hidden)ver(i+1)},7000)}
+    al.addEventListener('mouseenter',function(){clearInterval(rel)});al.addEventListener('mouseleave',tocar);tocar();
+  });
+
+  document.querySelectorAll('[data-copy]').forEach(function(b){b.addEventListener('click',function(){
+    var old=b.textContent;function ok(){b.textContent='Copiado';setTimeout(function(){b.textContent=old},1600)}
+    function sel(){var v=b.parentNode.querySelector('.v'),r=document.createRange();r.selectNodeContents(v);var x=getSelection();x.removeAllRanges();x.addRange(r);b.textContent='Selecionado'}
+    try{navigator.clipboard.writeText(b.dataset.copy).then(ok,sel)}catch(e){sel()}
+  })});
+})();
+</script>
+</body>
+</html>
